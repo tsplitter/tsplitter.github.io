@@ -9,12 +9,12 @@ def register(hook, order=0):
 def event(hook, *args):
     for order in sorted(_callbacks.get(hook, {})):
         for func in _callbacks[hook][order]:
-            event(*args)
+            func(*args)
 
 def filter(hook, value, *args):
     for order in sorted(_callbacks.get(hook, {})):
         for func in _callbacks[hook][order]:
-            event(value, *args) = value
+            func(value, *args) = value
     return value
 
 
